@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: saipavank63/similarity-search
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: saipavank63/similarity-search
+  template:
+    metadata:
+      labels:
+        app: saipavank63/similarity-search
+    spec:
+      containers:
+        - name: saipavank63/similarity-search
+          image: saipavank63/similarity-search:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8000
+            - containerPort: 8501
+          resources:
+            limits:
+              memory: "5Gi"
+              cpu: "6"
+            requests:
+              memory: "5Gi"
+              cpu: "6"
